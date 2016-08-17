@@ -1,8 +1,0 @@
-﻿Design Patterns-8 (Composite)
-
-Composite Pattern Ağaç veri yapısında olan kendi içerisinde kendi türünden çocuk sınıflar içeren yapılarda kullanılır. Örneğin;
-
-    Menu yapıları (PopupMenu, Menus, TreeMenu vb..)
-    UI Component yapıları (JPanel, JTextfield vb..)
-    Klasör ve Dosya yapıları
-    Container ve Element yapıları

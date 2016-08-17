@@ -1,9 +1,0 @@
-﻿Design Patterns-3 (Factory Method)
-
-Bir interface’den türemiş farklı farklı nesnelerimiz olduğunu düşünelim. Yukarıdaki örnekte bunu Shape nesneleri için göstermiş. Bunu UIComponent ların içinde düşünebilirdik. Bir çok alt sınıfı yapılar için uygun bir tasarım örüntüsüdür.
-
-Bu bileşenlere her yeni bileşen eklediğimizde kodun için ne kadar sınıfta Create metodları çağrılmış ise tüm bu sınıfların her seferinde güncellenmesi gerekir. Halbuki Factory Method pattern’i sayesinden oluşturma işlemi soyutlanır ve yeni bir bileşen eklenmesi tek bir sınıfı etkliler :)
-
-Sadece draw fonksiyonu olan bir Shape interface oluşturulmuş. Bundan türeyen 3 tane sınıf var. Rectangle, Square ve Circle.
-
-ShapeFactory sınıfının görevi şekil oluşturma işlemini soyutlamak. Aldığı parametreye göre bir şekil oluşturuyor. Yarın sisteme yeni bir şekil eklemek istediğimizde değiştireceğimiz kısım sadece ShapeFactory içerisindeki bu method olmuş olacak.
