@@ -1,0 +1,26 @@
+﻿AWS Global Altyapısı
+
+Önceki yazılarımda “AWS Nedir” ve “Ölçeklenebilirlik İhtiyaçları” konusunda yazılar yazmıştım. AWS Global Altyapısını anlatarak AWS konusuna devam ediyorum
+Regions
+
+Amazon fiziksel makinalarının tutulduğu bölgelerdir. Yapacağınız uygulamanın ihtiyaçları doğrultusunda bu bölgelerden birisini seçerek uygulamanızı bunlar üzerine deploy edebilirsiniz.
+
+    Son kullanıcıya yakınlık (Türkiye’deki kullanıcılar için EU Frankfurt seçimi en iyi çözüm olacaktır.)
+    Verilerin tutulması ile ilgili yasal gereklilikler
+    Genişleme stratejisi
+    Fiyat
+    Sağlanan Servisler (Her AWS servisi , her bölgede sağlanmıyor)
+
+Availability Zone
+
+Her Region içerisinde faklı lokasyonlarda birden fazla availability zone’lar tutulur. Fiziksel veri ve sunucu merkezleri bu zone’lar içerisindedir. Bu zone’lar birbirlerine özel fiber optik kablolar ile bağlanmış ve çok hızlı veri iletimi yapabilir. 25Tbps bant genişliği ve 1 veya 2 ms veri iletim süresi.
+
+Bu sayede High Availability sağlar. Bir sistem çökse bile diğer bir lokasyondaki replika devreye girer ve bu işlemler otomatik olarak gerçekleşir. Bu işlemlerin nasıl gerçekleştiğini daha önceden yazmış olduğum bu yazıyı anlatmıştım.
+
+AWS Datacenter’larında 50.000 ve 80.000 civarında sunucu bulunmaktadır.
+Edge Locations
+
+DNS sunucu servisleri ve CDN servisleri bu Edge Locations’lar üzerinden verilerek kullanıcıların en kısa zamanda ilgili verilere erişimi sağlanır.
+
+    CDN(Content Delivery Network) Servisi CloudFront
+    DNS Servisi Route53

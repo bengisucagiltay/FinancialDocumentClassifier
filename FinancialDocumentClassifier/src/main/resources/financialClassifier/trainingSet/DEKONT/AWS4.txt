@@ -1,0 +1,17 @@
+﻿AWS Platformu ve Servisleri
+
+Bir önceki yazımımda AWS Global Altyapısı yani Infrastructure anlatmıştık. Özetle bu kısımda Region, Availability Zone ve Edge’lerden bahsetmiştik. Bu yazıda Infrastucture üzerinde bulunan Compute, Storage, Network ve Administration&Security servislerden bahsedeceğim.
+
+AWS’nin ana konsoluna girdiğimizde karşımıza birçok servis hizmeti çıkacak ben bunlardan en çok kullandığımız temel servislerden bahsediyor olacağım.
+
+EC2 instance’ları AWS üzerindeki sanal sunuculardır. Değişik işlem gücü ve bellek alanındaki bu sunucuları alıp sistemimizi oluşturabiliriz. Buna istediğimiz büyüklükteki disk alanlarını ESB ekleyerek kullandıkları disk alanlarını büyütebiliriz. AWS’de kullandığımız kaynakların güvenliği ve monitor için IAM(Idendity And Access Management) ve CloudWatch servislerini kullanırız. Tekil bir network ağı oluşturmak için Amazon VPC kullanırız. Tüm bu servisler bizim sanal bir data center oluşturmamızı sağlar.
+
+Data Servisi tarafında SQL ve NoSQL veritabanı olarak RDS ve DynomoDB hizmetleri verilmektedir. Bunların servis olarak verilmesi yönetim için harcanan yedekleme, bakım ve replika oluşturma işlemleri çok basitleştiriyor. Aynı zamanda MultiAZ ile High Availability sağlıyor. Ayrıca çok büyük verileriniz analiz etmek için column-oriented Data Warehouse ihtiyacınız var ise bunun için Redshift servis hizmeti verilmektedir. Bunun üzerindeki büyük veriyi işlemek ve analiz etmek için EMR(Elastic Map Reduce) servis hizmeti verilmektedir. Data analitiğin real time yapılabilmesi için Kinesis servisinden faydalanabilirsiniz. Makine öğrenmesi için Machine Learning servislerini kullanarak bu işlemleri basit bir şekilde gerçekleştirebilirsiniz.
+
+Bunun üzerinde kullanabileceğiniz bir çok uygulama katmanı servisleri bulunur. Bu servisleri kendi imkanlarınız ile sunucuları veya uygulamaları kurarak kendinizde çalıştırabilirsiniz
+
+    In-Memory Cache: EC2 instance alıp üzerine Redis, Memcache sunucuları kurup kendi Cache sunucularınızı oluşturabilirsiniz veya bunun yerine Amazon Elastic Cache kullanabilirsiniz
+    Queue: EC2 instance alıp üzerinde RabitMQ veya ActiveMQ sunucuları kurup kendi Queue sunucularınızı oluşturabilirsiniz veya bunun yerine Amazon Simple Queue Service kullanabilirsiniz
+    ve bunun gibi Application seviyesinde ihtiyaç duyduğunuz Notification , Email , Search , Orchestration kısımları kendiniz yapabilirsiniz veya bunlar yerine AWS’nin size sağladığı imkanları kullanabilirsiniz.
+
+Bu servisleri kullanmamızdaki ana neden Fault-Tolerant ve High Available Servisler sağlaması. Bu servisleri kendiniz oluşturmak istediğinizde bunu manuel olarak yapmak zorunda kalmanız. Bu konuyu şu yazımda detaylı olarak anlatmıştım.

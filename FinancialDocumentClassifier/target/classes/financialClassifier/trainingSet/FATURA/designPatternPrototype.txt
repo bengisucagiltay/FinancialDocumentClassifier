@@ -1,0 +1,7 @@
+﻿Design Patterns-5 (Prototype)
+
+Prototype pattern’inin amacı nesnenin bir kopyasını oluşturmanın zor olduğu, zaman aldığı durumlar için bellekteki bir kopyasının oluşturularak istemciye dönüştürülmesini soyutlayan bir örüntüdür.
+
+Normal’de nesnenin oluşması için Dosyadan veya Veritabanından bir değer çekilmesi gerekir ise veya nesne çok çok büyük bir nesne ise bu patterni kullanmak anlamlıdır.
+
+Aşağıdaki örnekte görüldüğü gibi Shape sınıfı Cloneable sınıfından türemektedir. Bundan oluşturulan Rect, Square, Circle gibi sınıflar clonu oluşturulabilen nesneler..

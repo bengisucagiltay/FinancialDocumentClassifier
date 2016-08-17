@@ -1,0 +1,20 @@
+﻿Design Patterns-7 (Bridge)
+
+The bridge pattern is meant to “decouple an abstraction from its implementation so that the two can vary independently”
+
+Yani implementation soyutlanarak sınıftan ayrılması ile daha esnek kullanım elde edebiliyoruz. State pattern ile karıştırılmaması gerekir çünkü benzer olsada State Pattern’de bu ayrıştırmadaki amacı algoritmanın ayrılmasıdır.
+
+Yukarıdaki örneğe baktığımızda 2 farklı soyutlama katmanı bulunmaktadır. Uzaktan kumanda ve Televizyon.
+
+    Uzaktan Kumanda → AbstractRemoveControl
+    Televizyon → ITV
+
+Elimizde 2 farklı yapı bulunmakta. TV nin açılıp kapanma ve televizyon kanalarrının seçiminin yer aldığı sınıflar. TV
+
+AbstractRemoveControl ile TV üzerinde erişim sağlayarak Bridge kurarak gerçekleştirimleri çalıştırır.
+
+Aşağıdaki örnekte Bridge Pattern’in avantajını daha net görebilirsiniz. Elimizde Thread türleri olsun 2 tip(Preemptive,TimeSliced) ve bu threadlerin çalıştığı 2 tip(Unix,Windows) ortam olsun
+
+Şimdi yeni bir ortam eklemek istediğimizde örneğin JVM platformunu bu sisteme eklemek istediğimiz zaman mevcut sistemin 2X2 → 2X3 6 olacak ve bu mekanizmada sistem çarparak büyüyecek.
+
+Bunun yerine Bridge Pattern’i kullanırsak ThreadScheduler_Implementation ayırarak Thread Tiplerini ayrı bir hiyerarşide, Implementation ayrı hiyerarşide tutarak yeni platformlar ve yeni treadler eklemek daha basit bir hale gelir.

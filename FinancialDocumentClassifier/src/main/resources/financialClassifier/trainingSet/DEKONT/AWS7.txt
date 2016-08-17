@@ -1,0 +1,15 @@
+﻿AWS’de Application Servislerin Avantajı
+
+Ölçeklenebilirlik konularında farklı kaynak ve kullanım ihtiyaçları uygulamanızı Servis Odaklı Mimari şeklinde bölmenizi gerektirebilir SOA sayesinde bu kısımları loose-coupled mimaride geliştirebilir ve uygulamanızın diğer kısımlarını bozmadan ölçeklendirebilirsiniz.
+
+AWS bu konuda Application Seviyesinde SOA servisleri sunarak sizin bu işleri bir daha , bir daha gerek yok diyor.
+
+Tekerleği Yeniden İcat Etmeye Gerek Yok
+
+Email gönderme, kuyruk sistemi, media transcoding, loglama ve yazılım ile ilgili genel ihtiyaçlar tüm projelerde benzerlik göstermektedir. Bu kısımdaki logic’leri tekrar tekrar kodlamak veya sunucu kurup ayağa kaldırmaya gerek yoktur. High Available, Scalable ve Fault-Tolerant bir sistemi AWS App Service olarak sunmaktadır.
+SQS
+
+Simple Queue Service sayesinde uygulamanızda uzun sürecek veya başka bir işlemi bekleyecek servisler için kendi imkanlarınız ile DB Queue’ları oluşturabiliriz veya RabbitMQ, ActiveMQ gibi OpenSource kuyruk uygulamaları kullanabiliriz. Fakat iş bunları High Available, Scalable ve Fault-Tolerant yapmaya gelince bunun için bir sunucu kurmaktan fazlasını yapmamız gerekiyor. AWS bunun ile kendinizin uğraşmayıp, direk SQS REST APIsini kullanarak bu işlemleri basitleştirebileceğinizden bahsediyor.
+Diğerleri
+
+Lambda, SES (Simple Email Service), SNS(Simple Notification Service), Cloud Search, SWF(Simple Workflow Service), Elastic Transcoder hepsi sizin uygulamanızda ihtiyaç duyduğunuz kendinizin open-source araçlar veya kendi imkanlarınızla geliştirebileceğiniz kodlar. Bunları AWS SOA Servisleri olarak kullanırsanız uygulamanızın daha ölçeklenebilir hale getirebilirsiniz.

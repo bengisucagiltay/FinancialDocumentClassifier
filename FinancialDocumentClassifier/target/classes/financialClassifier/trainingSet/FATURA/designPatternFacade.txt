@@ -1,0 +1,7 @@
+﻿Design Patterns-10 (Facade)
+
+Sizin bir sisteminiz olsun, ve bu sistem bir çok bileşenden oluşup dışarıya hizmet versin, mesela GIS(Geographic Information System). İçerisinde bir çok alt sistem mevcuttur, her birisinin birbirleri ile çalışması için bir sürü arayüz ve listener mekanizması mevcuttur. Harita Altlığı, VeriModeli, Drag-Drop mekanizması, Layer sistemi, Icon sistemi, vb… alt sistemlerinin olduğunu düşünelim.
+
+Mevcut durumda istemci bütün bu alt sistemleri, bunların arayüzlerini ve listenerlarını öğrenmesi gerekirken, Facade Pattern’i sayesinde istemci bundan soyutlanır. GIS uzmanı olan kişi tüm alt sistemleri içerecek bir Facede sınıfı içerisinden dışarıya daha temiz ve basit bir arayüzle fonksiyon erişim imkanı vererek, sanki bir API gibi kullanıcının GIS bilmeden bu sistemi kullanmasını daha rahat bir şekilde sağlamış olur.
+
+Aynı zamanda ilerde bu alt sistemler üzerinde yapacağı değişiklikler, refactoring ve yeni fonksiyonalite güncellemelerinden son kullanıcıyı etkilemeden yapabilmesini sağlar. Sonuçta Facade ile alt sistemler soyutlanmış olur.

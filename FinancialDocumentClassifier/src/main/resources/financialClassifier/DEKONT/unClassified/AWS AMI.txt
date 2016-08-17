@@ -1,0 +1,11 @@
+﻿AWS AMI (Amazon Machine Image)
+
+Amazon Machine Image, bulut ortamında sanal sunucu olarak çalıştıracağınız AWS EC2 instance kurmak istediğinizde size hazır AMI instance kurup kurmak istemediğiniz sorar. Bunun avantajı üzerinde hazır işletim sistemi olan, uygulama sunucuları ve uygulamarı hazır olan bir sunucunun kurulmasıdır.
+
+Diyelim ki bir EC2 makinesi oluşturdunuz üzerinde sadece işletim sistemi mevcut. Siz uygulamanızın çalışabilmesi için bu işletim sistemi üzerine bir çok uygulama ve sunucu kurduğunuzu düşünelim Web Sunucusu, Queue Sunucusu, SQL DB, Non SQL DB, MemCache vb…
+
+Şimdi yeni bir EC2 makinesi oluşturmak istiyorsunuz baştan bütün bu konfigürasyon ayarlarını yapmak oldukça zahmetli bir iş. Bunun yerine önceki EC2 makinesinin bir Image’nı oluşturuyoruz.
+
+Image oluşturulduğunda bunu EC2 bölmesinde Image/AMI altında oluşan AMI nesnesini görebilirsiniz. Sunucunuz çalışırken Image almaya çalışmak çalışan sunucuda bir takım problemlere sebep olabiliyor. Çalışan sunucular kapanabiliyor önceden kapattığınız servisler tekrardan açılabiliyor. Yani image alma işlemi çalışan bir sunucuyu reboot etmiş gibi davranmasına sebep olabiliyor. Sizin yapmanız gereken sunucularınız ve servislerinizi tekrardan kontrol etmek.
+
+Yeni bir EC2 makinesi açmak istediğinizde My AMIs altından oluşturduğunuz Image seçerek bunun Ec2 instance’sınızı kurabilirsiniz.

@@ -1,0 +1,75 @@
+﻿Oyun Mekanizması 4
+
+Bu yazıda 2003 yılında yazmış olduğum yazıdan alıntı bir yazıdır.
+API’ler
+
+Api nedir? Açılımı Application Programming Interface yani Uygulama Programlama Arayüzüdür. Sağladığı bir takım fonksiyonlar ile spesifik görevleri yerine getirmemizi yardımcı olan kütüphanelerdir.
+
+Bizim oyunlarda kullanıcağımız API’ler grafik ve ses donanımına arayüz sağlayarak ondan yararlanmamızı sağlayan kütüphaneler olacaktır. Mesela OpenGL, GLUT, GLU DirectX (Direct3D, DirectDraw, DirectShow, DirectInput, DirectPlayer, DirectSound, DirectMusic), Java2D, Java3D, JavaMusic, JavaNET, JavaMedia, FMOD, vb …gibi.
+
+Ben bu kısımda OpenGL Api’sinden kısaca bahsetmeyi uygun gördüm.
+OpenGL Nedir ?
+
+OpenGL grafik donanımı üzerinde bulunan bu donanıma arayüz oluşturan bir yazılımdır. Bu arayüz 250 farklı komut seti içermektedir. Bunlardan 200 OpenGL çekirdeği içerisinde diğer 50 tanesi ise OpenGL Utility Library içerisindedir. OpenGL grafik api’ si sayesinde 3 boyutlu interaktif uygulamalar geliştirebilirsiniz.
+
+OpenGL platform bağımsız bir API’ dir. Arka arkaya çalıştırılan komut akışı gerçekleştiren bir arayüz olarak dizayn edilmiştir. Bu kaliteyi sağlamak içinde kendi bünyesinde windowing task’lar ve obtaning user input gibi komutları içermez, onun yerine kullandığı platformun OpenGL’e sağladığı windowing ve input servislerinden yararlanır. Aynı şekilde yüksek seviyeli 3 boyutlu nesneler oluşturmak için de komut içirmez. Fakat sağladığı komutlarla bir otomobil, uçak veya molekül yüzeyi oluşturabilir. OpenGL ile bu tipte istenen modelleri oluşturmak için geometrik primitif dediğimiz küçük araç kitindeki nokta, çizgi ve polygonlardan yararlanırız.
+
+Elbeteki daha iyi bir grafik sistemin oluşturulması OpenGL’ in temel yapılarının üzerine oturtularak kurulabilir. OpenGL Utility Library (GLU) birçok yüksey düzey modelleme özelliklerine, Quadratic yüzeylere, NURBS eğri ve yüzey oluşturma özelliklerine sahiptir. Daha farklı olarak yine OpenGL üzerine kurulu Scene Graph özelliğine sahip olan daha yüksek düzeyli Farrenheit Scene Graph yine OpenGL kütüphanesi üzerine kurulmuş yüksek düzeyli bir kütüphanedir.
+Renderleme Sırasında Yapılan İşlemler Nelerdir ?
+
+Aşağıdaki 4 aşamada kısaca renderleme işleminin gerçekleşmesi sırasında hangi işlemlerin olduğu gözükmektedir.
+
+    Şekillerin ve geometrik nesnelerin matematiksel ifadelerle oluşturulması (OpenGL kendi bünyesinde nokta, çizgi, polygon , görüntü, bitmap gibi primitif nesne oluşturacak araçlara sahip)
+    Nesnelerin üç boyutlu düzlemde düzenlenmesi ve bakış açısının ayarlanması
+    Nesnelere ait renk değerlerinin hesaplanması, ışık, doku(texture) değerleri de hesaba katılarak ekrana uygulanması
+    Tüm nesne değerlerine ait tanımların ve renk değerlerinin pixel değerlerine çevirilmesi kısaca rasterization olayının gerçkleşmesi
+
+Bu aşamalar süresince OpenGL nesnelerinin elimine edilmesi gereken yerlerin elenmesi, gözükmeyen(hidden) kısımlarının yok edilmesi. Ayrıca rasterization işlemleride soyutlayarak anlatmıştır.
+Basit Bir OpenGL Kodu
+
+Bu kadar fazla opsiyonun ve kompleks işlemlerin OpenGL grafik sistemiyle yapılması OpenGL kompleks bir hale getirebilir. Fakat temelde OpenGL ile yapılmış bir programın yapısı çok basittir. Yaptığınız iş aslında OpenGL ‘in hangi nesneleri renderlemesi ve nasıl renderlemesi gerektiği hakkında belli stateleri tanımlamak ve kontrol mekanizması koymaktan ibarettir.
+
+OpenGL’i aslında bir Gerçek Zamanlı Renderleme Yazılımı olarakta düşünebilirsiniz. Bu programlama yapısını ortaya koymadan önce bazı terimleri kavramaya çalışalım.
+OpenGL Bir Durum Makinasıdır
+
+OpenGL bir durum makinasıdır (state machine). Siz belli paremetreleri aktif hale getirerek OpenGL machine’ in belli bir durumda (state) bulunmasını sağlarsınız.
+
+Mesela boyama işlemi için bir renk değeri atadığınızda bu renk değeri tekrar atanıncaya kadar aynı kalır ve o süre içerisindeki tüm boyama işlemleri bu renkle gerçekleştirilir. Bunun gibi birçok durum (state) belirleyen kontroller içerir mesela görüş (current viewing), projeksiyon (projection), dönüşümler (transformations), çizgi (line), poligon (polygon), “stipple patterns”, polygon drawing model, pixel paketleme ve çevrimleri, ışığın pozisyonu ve karakteristik özellikleri, nesnelerin metarial özellikleri . Birçok durum (state) değişkeni mod içerir ve glEnable( ) ve glDisable ( ) komutlarına sahiptir
+OpenGL’ de Durum Makinesi Sorgulaması
+
+Sistemdeki durumlar default değerler içerirler. Durum değeri hakkında bilgi edinmek içinse glGetBooleanv( ) , glGetDoublev( ) , glGetFloatv( ), glGetIntegerv( ), glGetPointerv( ) veya glIsenabled( ) komutlarıyla sorgulama gerçekleştirilebilir. Bu tip sorgulamalar genelde veri tiplerine özgüdür. Bir de daha spesifik konular için hazırlanmış sorgular bulunur. glGetLight( ), glGetError( ), glGetPolygonStipple ( ), gibi ayrıca yığınlarda ki durumlarıda geriye döndürmenize olanak sağlar. glPopAttrib( ), glPushAttrib( )
+OpenGL Rendering Pipeline
+
+OpenGL işlemlerinde ortak operasyonlarla belirli katmanlar oluşturularak. OpenGL rendering pipeline oluşturur.
+
+Display List
+
+Geometrik yada pixel olarak tanımlanmış tüm veriler display listte şu an yada sonra kullanılmak üzere kaydedilir. (Display list’e tutulan veri dışında immidiate modu kullanan verilerde bulunur.) ne zaman ki Display List çalıştırılmak istense display listte tutulan veriler çalıştırılmak üzere işleme sokulur.
+
+Evaluators
+
+Tüm nesneler noktalardan oluşturulabilir. Ama paremetrik yüzeyler veya eğriler kontrol noktasıyla idare edilir. İşte evaluatorlar yüzey noktaları ve kontrol noktalarının uyumlu olarak ortak bir şekilde hareket etmesini sağlayan arabulucu method topluluğudur.
+
+Per- Vertex Operations
+
+Bu aşamada noktaların primitiflere (4*4 Matrislere) dönüştürülmesi işleminin yapıldığı aşama Uzaysal koordinatların ekrandaki 3D Dünya koordinatlarına çevrildiği , hesaplandığı aşama. Eğer ileri düzey özellikler kullanılırsa bu aşamanın üzerine düşen yük artar. Mesela doku kaplama özelliği sonucunda doku koordinatlarının hesaplarının yapılması. Lighting özelliğiyle aydınlatma hesaplarının yapılması tabi bu sırada dönüşüme uğramış köşe, kenar, yüzey normali, ışık pozisyonu ve meterial özelliklerine hesaplanması ve renk değerlerinin hesaplanması bu aşamada gerçekleşir.
+
+Primitive Assembly
+
+Temel görevi için clipping işlemi diyebiliriz. Bu aşamada düzlem dışında kalan geometrilerin elenmesi gerçekleşir. Noktanın clipping işlemi basit olmasına rağmen, çizgi ve polygonlar için ek algoritmalar kullanılır. Bazı durumlarda bu aşamayı perspective division izler bu kısım uzaktaki objelerin daha küçük gözükmesini sağlıyor. Viewport ve depth işlemleri uygulanarak (z-coordinate işlemlerinin gerçekleşmesi).Genelde bu aşama sonunda primitif geometrik nesnelerle ilgili işlemler biter. (transformation, clipping veritces with related color, depth and texture coordinate values)
+
+Pixel Operations
+
+Geometrik nesneler OpenGL rendering pipeline sırasında bir yol izlerken pixel data farklı bir rota izler. Sistem belleğindeki dizi halinde tutulan veri unpacked edilerek değişik formatlardan OpenGL için uygun bileşenlere dönüştürülür. Daha sonra bu veri pixel map tarafından scaled, biased edilir. Sonuç sıkıştırılarak texture belleğine depolanır ve buradanda rasterization aşamasına geçer.Bu aşamada framebuffer’a yada texture belleğine özel pixel kopyalama metodlarına sahiptir. Bu tekil kopyamalar tüm verinin framebuffer veya texture buffer’a kopyalanmadan yapılması gerekmektedir.
+
+Texture Assembly
+
+OpenGL uygulamaları kaplama görüntülerinin geometrik nesnelerin üzerine uygulanarak daha gerçekçi bir şekilde görüntülenmesini sağlar. Eğer değişik kaplama görüntüleri kullanılıyorsa akıllıca olan bunları kaplama nesneleri haline dönüştürerek bunlar arasında kolayca değişiklik yapmanıza olanak sağlaması.Bazı OpenGL gerçekleştirimlerinde kaplama performansını arttırmak ve hızlandırmak için özel kaynaklar kullanılmakta. Belki texture belleği için özel olarak geliştirilmiş yüksek düzeyli bellek alanı. Bu tarz bir bellek olursa texture nesneleri öncelik değerleri vererek etkin kullanılması sağlanabilir.
+
+Rasterization
+
+Tüm geometrik nesnelerin ve pixel verilerinin fragmentlere dönüştürüldüğü aşamadır. Bu fragment framebuffer da bulunan pixelden sorumludur.
+
+Fragment Operation
+
+Framebuffer a değerleri yüklenmeden önce bir takım operasyonların yapıldığı değişikliklerin yapıldığı aşamadır. Bu aşamadaki operasyonlar enabled() ve disabled() şeklinde gerçekleşir.Belirlenen texture elemanlarının ilgili fragmentlere uygulanması. Scissor testi, Apha testi, stencil testi ve depth buffer testi( for hidden surface removal) uygulandıktan sonra sis hesaplarının yapılması gerçekleştirilmesi . Eğer bu aşamada yapılan testlerde hata oluşursa fragment için yapılan işlemleri sonlandırır bu testler başarıyla gerçekleşirse blending, dithering, logical operasyonların, masking işlemleri gerçekleştirilebilir.

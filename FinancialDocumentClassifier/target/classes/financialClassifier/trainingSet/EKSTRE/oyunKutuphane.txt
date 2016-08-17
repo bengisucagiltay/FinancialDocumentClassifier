@@ -1,0 +1,72 @@
+﻿Zengin İçerikli İnternet Uygulamaları Oluşturmaya Yarayan Kütüphanelerin 2010–2015 Değişimi
+
+9 Nisan 2010 yılındaki yazımdan alıntı. Herhalde internet teknolojileri ile ilgili yazdığım ilk yazı. O zamanlar Havelsan, Milsoft olmak üzere Savunma Sanayi projelerinde 8 yıldır Swing programlıyordum. Kendimi nasıl HTML, Internet ve Mobil teknolojilerde geliştirebilirim şeklinde düşünüyor ve araştırıyordum. Bu araştırmalarım sonucu yazdığım ilk yazı aşağıdadır. Bu yazının biraz altında günümüzde geldiğimiz noktayı değerlendireceğim.
+
+9 Nisan 2010
+
+Gelişen teknoloji ile birlikte insanların yazılım arayüz kullanım alışkanlıkları değişmeye başladı. Yazılımdan beklediği yetenekler farklılaşmaya başladı. Web’de Flash’ın etkisi, Cep Telefonunda iPhone arayüzü ve çoklu dokunmatik ekranı, Oyun konsolunda Wii Controller, Desktop’ta Steam ve iTunes benzeri internet bağlantılı uygulamalar, TV’de ipTV, Tivibu vb.. teknolojiler insanların beklentilerini aşağıda belirtilen şekilde değiştirmeye başladı;
+
+    Arayüz bileşenlerin daha renkli hale getirilmesi (CSS desteği)
+    Arayüzler arası geçişlerin yumşak bir şekilde gerçekleşmesi (Animasyon desteği)
+    Bileşenler üzerine efekt uygulayarak (Örneğin: yansıma) Bileşenlerin daha etkili gösterilmesi
+    Bileşenlerin dikdörtgen ve x,y kalıplarından çıkarılarak 3 boyutu kullanan daha estetik görünüşe sahip bileşenler olması.
+    Video, Müzik ve Resim formatlarını desteklemesi
+    Dokunmatik Ekran ve Sensor sağladığı yetenekler (Örneğin iPhone resim uygulaması)
+    Uygulamalara internet olan her ortamdan erişebilme (PC, Laptop, Cep Telefonu, TV)
+    Oluşturduğun içeriği internette saklama ve istediğin zaman, herhangi bir yerden, oluşturduğun verilere ulaşabilme ve kullanma (Örneğin Google Docs)
+    Uygulamalara güncelleme ve fixlerinin sorunsuz bir biçimde gerçekleşmesi
+    Uygulamaların virus taşımadığından ve sisteminize zarar vermeyeceğinizden emin olmak
+    Uygulamaların üzerinde çalıştığı donanımı en iyi performans alacak şekilde çalıştırması.
+
+Kullanıcıların bu ihtiyaçlarını karşılamak için firmalar Client-Side uygulama geliştiricileri için teknolojiler üretmeye başladı.
+
+Google GWT ile Java dilini JavaScript ve HTML dönüştüren bir platform sundu.
+
+Microsoft Silverlight ile hem browser, hemde windows mobile üzerinde çalışabilecek bir dil olarak geliştirdi.
+
+Adobe browser dışına çıkarak desktop’a sıçradı. AIR teknolojisini geliştirerek
+
+Java ve .NET’in masaüstündeki pazarından pay almaya çalışıyor. Bir yandan da Adobe’un web deki gücünü sağlayan flash’ın tahtını sallayan, HTML 5 teknolojisi ile uğraşıyor.
+
+Tüm bu savaşlar olurken SUN’da client side pazarını kaybetmemek için kendi RIA dilini geliştirmeye başladı. JavaFX diğer teknolojilere göre pazara geriden başladığı için hiç şans tanınmayan ağırca eleştirilen bir dil oldu. Peki JavaFX’in RIA pazarında şansı var mı, neyi hedefliyor ?
+
+Biraz öncede bahsettiğim gibi bir çok kişi JavaFX pazarda şansı olmadığını düşünüyor. Aslında bence bu tam olarak doğru değil. İnternette yazılan yazıların çoğu kulaktan dolma bilgilerle kişiden kişiye aktarılmış ve somut dayanaklara dayanmayan fikirler
+
+    JavaFX’in piyasaya geç girmiş olması, yavaş gelişiyor olması ,
+    Tool desteğinin Adobe’un yanına bile yaklaşamaması, üzerinde geliştirilmiş teknoloji gösteren uygulamaların azlığı,
+    iPhone, Android, BlackBerry gibi popüler SmartPhone desteklememesi, appletlerin tarayıcılara geç yüklenmesi
+
+JavaFX pazarının gelecekte olmacağını düşündürebilir. Fakat olaya başka perspektiften bakarsak. Oracle, SUN satın alma işlemi 2010 başında tamamlandı. İlk yapılan açıklama hangi teknolojilerin devam edip hangilerinin sonlandırılacağı ile ilgiliydi. Oracle JavaFX büyük ilgi duyduğunu , JavaFX parasal destek ve kaynak sağlıyacağını belirtti. Daha sonrasında JavaFX ile hazırlanmış ilk ciddi uygulama duyurdu. Vencouver 2010 sitesinde madalya görselleştirimi.
+
+Oracle ve IBM server-side alanında business pazarın büyük bir kısmına sahip iki dev firma. Ve tüm sistemlerini J2EE ve Java teknolojileri üzerine kurmuşlar. Bu iki büyük firma Server-Side bu hizmetlerden yararlanan işletmelere bütünleşik bir paket vermek istiyorlar. Örneğin Oracle incelersek; SUN Workstation üzerine Solaris İşletim sistemi, Oracle DB, Oracle MiddleWare(J2EE), ve ClientSide(J2SE,J2ME ,JavaFX), IBM firmasıda benzer bir bir ürün yelpazesine sahip. Ve tüm yazılımları Java ve JVM üzerinde çalışıyor.
+
+Ayrıca işletmelerin server-side kısmını java dili ile geliştirip, client side bilmedikleri bir dilden dolayı başka firmalara dağıtmak yerine bu kısmıda kendi kodlayabilecek dil imkanı sunuyor. Bu sayede aynı kişiler tarafından, aynı geliştirme ortamlarında , aynı dil, aynı JVM(Java Virtual Machine) kullanılarak geliştirecekleri sistemlerde, daha az maliyete, daha stabil bir sistem üretmeyi hedefliyeceklerdir.
+
+şİşin özeti JavaFX bir oyun veya bir eğlence aracından çok, ciddi işlerde kullanılan Client-Side dili olacak. İşletmeler için JVM üzerinde çalışması, kendi Java kütüphanelerine erişebiliyor olması, hatta önceden yazdıkları Swing arayüzleri ile entegre edilebiliyor olması, bu işletmeleri JavaFX yönlendirecektir. Gelecek zamanlarda JavaFX’in bir çok arayüz bileşeni ve veri sağlayıcısını(web servisi, db) birbirine entegre edilecek ve bu işlerin otomatik yapılabilmesi için araçlar tasarlanacaktır.
+
+Yukarıda yazdığım nedenlerden dolayı JavaFX şu anda RIA pazarını kaybetmiş değil. Hatta hiç bir teknoloji yerine kaybetmiş değil. Sadece HTML5′in, Silverlight, Flex in yeri farklı. Ortak yetenekleri oldukları için sürekli birbirleri ile kapıştırılsalarda, duruma farklı bir gözle bakarak kendi ihtiyaçlarınıza göre teknoloji seçimi yapmanız gerekir.
+
+7 Eylül 2015
+
+Yukarıdaki JavaFX ile ilgili varsayımlarımın hiçbirisi tutmadı diyebilirim. Hatta diğer bahsi geçen teknolojilerde yok olup gidiyor.
+
+Sun → Oracle satıldı. İsmi bile unutuluyor. Yeni nesil java dilini, bir çok işletim sistemi ve donanımı geliştiren SUN tanınmıyacak bile..
+
+JavaFX → Oracle SUN satın aldıktan sonra ilk iş dil ve syntax yoketmek oldu. Bunun yerine Swing üzerine Effect/Animasyon sağlayan bir kütüphaneye dönüştürdüler.
+
+Java Applet → Chrome/Firefox vb.. tarayıcılar artık Applet desteklerini sistemlerinden kaldırıyorlar.
+
+Web’de Flash’ın etkisi. → OccupyFlash(http://occupyflash.org/) Flash ölüyor. Tüm video altyapısı HTML5 döndü ve artık tarayıcılar Flash desteklemiyor.
+
+Google GWT → Google kendi iç projelerinde kullandı. Çok yaygınlaşmadı. Şu anda altyapı olarak Angular.js ve React.js destekli kütüphaneler daha popüler. GWT’de zaman içinde yok oluyor diyebiliriz.
+
+IBM → Halen ayakta ama günümüze kadar ciddi maddi problemler yaşadı.
+
+Silverlight → Etkin olarak kullanılmıyor. Microsoft’ta HTML5 destekli KendoUI, AngularJs vb altyapıları daha çok destekledi.
+
+Blackberry → Mobil cihazlarının, cep telefonlarının artık adını bile duymuyoruz.
+HTML5 WINNER
+
+Özetle zengin içerikli web uygulamalarında HTML5 bütün rakiplerini yenerek tek başına ayakta kaldı. Artık tarayıcılar üzerinde UI ve App kütüphaneleri Angular, React ve Ember.js gibi direk JS ortamında yazılan kütüphaneler.
+
+Steve Jobs Mobil tarayıcılarında HTML5 dışında içerik desteklememesi, sonradan buna Chrome, Firefox ve IE gibi tarayıcılarında katılması ve en son olarak Flash tüm tarayıcılardan çıkarılma çabası artık Browser hakimiyetinin sadece HTML5 tarafında olacağını gösteriyor.

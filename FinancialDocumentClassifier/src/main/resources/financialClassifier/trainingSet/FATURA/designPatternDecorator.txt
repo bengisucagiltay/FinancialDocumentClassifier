@@ -1,0 +1,10 @@
+﻿Design Patterns-9 (Decorator)
+
+Decorator pattern uygulamalarda sıkça kullanmak zorunda kaldığım örüntülerden birisidir. Mevcut tasarımınızda herhangi bir sınıfınızın yaptığı iş yeterli olmadığı ve sınıfınıza yeni fonksiyonaliteler eklemeniz gerektiği durumda aynı arayüzü koruyarak ve mevcut sınıfları ve algoritmaları değiştirmeden bu eklemeyi nasıl yapabilirsiniz.
+
+Aşağıda örnekte görüldüğu gibi Shape interface görevi ilgili şekling draw() fonksiyonunu çağırarak çiziminin sağlanmasıdır. Biz buna RedBorder ekstre özelliği kazandırmak ister isek. Önümüzde 2 seçenek bulunmaktadır.
+
+    Shape sınıfını güncellemek
+    Shape interface türeyen Decorator oluşturup bu fonksiyonaliteyi bu Decorator içerisinde gerçekleştirmek.
+
+2nci seçeneğin avantajı mevcut fonksiyonalite ve algoritmalara dokunmadan fonksiyonalite eklemelerini dışarıdan yapabilmektir. Aşağıdaki kodlarda fonksiyonalite eklemesini RedShapeDecorator draw() fonksiyonunda yaptığını görmekteyiz.

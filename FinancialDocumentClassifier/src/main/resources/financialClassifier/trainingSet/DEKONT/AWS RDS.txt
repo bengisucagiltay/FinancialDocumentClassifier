@@ -1,0 +1,35 @@
+﻿AWS RDS(Rational Database Service) çökmeyen ve dayanaklı veritabanı servislerini nasıl sağlıyor ?
+
+Başlık yanıltıcı olabilir aslında veritabanı servisleri çökebilir. Burada kastedilen replika veritabanı nasıl devreye giriyor. Çöken veritabanı servisi yerine nasıl yenisi oluşuyor ?
+
+RDS Multi-AZ özellikli veritabanında bu yeteneği denediğimde Replika veritabanına yönelmesinin ve yeni veritabanı servisinin ayağa kalkması 30 saniye gibi bir süre aldığını gördüm. Özetle bu testi şu şekilde yapabilirsiniz. RDS servisi aldığınız Endpoint: xxxdb001.cyozurvuifki.eu-west-1.rds.amazonaws.com:3306 ip’sini sorgulatın sonra RDS servisini Reboot ederken failover seçeneğini işaretleyin eğer aldığınız servis Multi-AZ özellikli değil ise bu Failover seçeneği çıkmayacaktır. Sonrasında sistemi reboot edin. RDS bir süre sonra aynı endpoint adresinden hizmet vermeye devam edecektir. Tekrar IP sorgulatın IP’nin bir önceki IP’den farklı bir IP olduğunu göreceksiniz.
+
+Peki yukarıdaki sistem nasıl çalışıyor ? Bunun için Amazon Region ve Availability Zone’ları anlamamız gerekiyor.
+
+Amazon Region ve Availability Zone
+
+Amazon fiziksel makinalarını bu regionlar içerisindeki Availability Zone’larında tutuyor. Regionların birbirleri ile hiç bir fiziksel bağı yok. Amacı bir bölgedeki örneğin Türkiye’deki kişinin kendisine yakın Regiondan faydalanması böylece Network gecikmesini verinin katedecegi yolu kısaltmak. Avaliability Zonelarda Regionlar içerisinde farklı fiziksel alanlarda yer alıyor ama bu Availability Zonelar arasında low-latency linkler mevcut
+
+Region
+
+ap-northeast-1 Asia Pacific (Tokyo)
+ai-southeast-1 Asia Pacific (Singapore)
+ap-southeast-2 Asia Pacific (Sydney)
+eu-central-1 EU (Frankfurt)
+eu-west-1 EU (Ireland)
+sa-east-1 South America (Sao Paulo)
+us-east-1 US East (N. Virginia)
+us-west-1 US West (N. California)
+us-west-2 US West (Oregon)
+
+Availability Zone
+
+Bulunduğunuz Region göre seçebileceğiniz subnetler yani Availability Zone’lar değişiyor.
+
+Multi -AZ
+
+RDS Multi-AZ özellikli bir veritabanı hizmeti aldığınızda bunun otomatik olarak replikasini başka bir zoneda almaya başlar.
+
+RDS master çöktüğünde DNS ayarı otomatikman diğeri olacak şekilde güncelleniyor. Uygulamada güncelleme yapmadan replikaya bakmaya başlıyorsunuz.
+
+Daha sonrada 1–3 dakika arasında ölen DB yerine yenisini oluşturuyor.. Bu işlemleri otomatik olarak AWS yapıyor.

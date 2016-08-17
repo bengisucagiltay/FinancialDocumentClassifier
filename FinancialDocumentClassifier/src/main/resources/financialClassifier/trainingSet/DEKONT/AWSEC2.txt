@@ -1,0 +1,65 @@
+﻿AWS EC2 Tipleri ve Kullanım Senaryoları
+
+AWS EC2 Tiplerine baktığımızda kullanım amaçlarına göre aşağıdaki şekilde gruplandığını görebilirsiniz. Konu ile ilgili detayları EC2 instance types linkinde bulabilirsiniz.
+
+    Genel Kullanım Amaçlı (T2, M4, M3)
+    İşlemci Optimize ( C4, C3)
+    Bellek Optimize ( R3)
+    Grafik Kartı Destekli (Vektörel İşlem Gücü Yüksek (G2)
+    Disk Optimize (I2, D2)
+
+T2 Kullanım Senaryoları
+
+    Küçük veritabanları
+    Mikroservisler
+    Canlı öncesi geliştirmeler
+    Geliştirme ortamları
+    Düşük trafikli web uygulamaları
+
+M3, M4 Kullanım Senaryoları;
+
+    Küçük ve Ort ölçekli veritabanları
+    Veri işleme görevleri için ek bellek ihtiyacı,
+    SAP ve MS SharePoint için sunucu
+    Cache Fleeting
+    Cluster Computing
+    Diğer Kurumsal Uygulama tipleri için uygundur
+
+C4, C3 Kullanım Senaryoları;
+
+    Yüksek performans gerektiren FrontEnd ortamlarında
+    Web Sunucularında
+    Batch Processing işlemlerinde
+    Dağıtık analitik işlemlerde
+    Yüksek performanslı bilim ve mühendislik işlemlerinde
+    MMO gaming
+    Video Encoding işlemlerinde
+
+R3 Kullanım Senaryoları;
+
+    Bellek optimizasyonu ihtiyacı olan,
+    Yüksek performanslı veritabanları
+    Dağıtık Bellek Cacheleri
+    Bellekte yapılan dağıtık analitik işlemleri için
+    MS Share, SAP Analitikleri için
+
+G2 Kullanım Senaryoları;
+
+    3 Boyutlu Oyun Streaming
+    Makine Öğrenmesi
+    Video Encoding
+    Sunucu taraflı Bilgisayar Grafikleri işlemlerinde
+
+I2 Kullanım Senaryoları;
+
+    NoSQL veritabanları Cassandra, MongoDB
+    Data Warehouse
+    Hadoop ve Cluster File System
+
+D2 Kullanım Senaryoları;
+
+    MPP (Massively Parallel Processing)
+    Data Warehousing
+    MapReduce, Hadoop Distributed Computing
+    Distributed file system
+    Data Processing Applications.

@@ -1,0 +1,183 @@
+﻿AWS Platformu 2016
+
+2016'da AWS platformundaki servisleri aşağıda özetledim.
+Global Infrastructure
+
+Region, Available Zone ve Edge Location’dan oluşur. Bu konuyu ilgili detayları bu yazımda bulabilirsiniz.
+Networking
+VPC
+
+Virtual Private Cloud, AWS üzerinde sanal network oluşturmanızı sağlar.
+Route53
+
+DNS ‘lerinizi yönetmenizin sağlar ismini DNS kullandığı port 53 olduğu için ismini buradan almıştır.
+Direct Connect
+
+Internet Provider kullanmandan Özel network sağlayıcıları ile direk olarak AWS kaynaklarına erişmenizi sağlar.
+Compute
+EC2
+
+AWS’nin sanal sunucularıdır.
+EC2 Container Service
+
+EC2 instance üzerinde Docker Container oluşturmanızı ve yönetmenizi sağlar
+Elastic Beanstalk
+Lambda
+
+EC2 instance PaaS hizmeti vererek üzerinde hazır Tomcat, Node, Ruby vb.. Containerlar
+
+EC2 üzerinde microservice Lambda fonksiyonları çalıştırmanıza imkan verir
+Storage
+S3
+
+Object Storage Servisidir. 1byte -5TB arasındaki doyalarınızı saklayabilirsiniz
+Cloud Front
+
+CDN yani Content Delivery Network, Yani statik kaynaklara hızlı erişim için kaynakların AWS Edge’lerinde tutulması
+Glacier
+
+Arşivlemek istediğiniz ve anlık erişime ihtiyaç duymayacağınız büyük verilerinizi ucuza saklayan servistir.
+EFS
+
+Elastic File System. Birden fazla EC2 instance ortaklaşa kullanabileceği dosya sistemidir.
+Storage Gateway
+
+On-Premise uygulamalarda AWS Storage güvenli bir şekilde sadece bu uygulamanın kullanabilmesini sağlar.
+Snowball
+
+Büyük verilerin Export/Import’unu sağlar.
+Databases
+RDS
+
+Rational Database Servisidir MSSQL, MySQL, Oracle, Aurora, Postgre SQL veritabanlarını destekler.
+DynamoDB
+
+AWS’nin sağladığı NonRelational DB hizmetidir. Performanslı ve Yüksel ölçeklenebilir
+Elastic Cache
+
+In Memory Cache Servisidir. Redis ve Memcache destekler.
+Redshift
+
+AWS üzerindeki VeriAmbarı hizmetidir. Petabyte büyüklüğündeki verileri tutar
+SimpleDB
+
+AWS’nin sağladığı NonRelational DB Hizmedir. Basit ve Esnektir.
+DMS
+
+Database Migration Service
+Analytics
+EMR
+
+Elastic Map Reduce servisidir. AWS üzerinde Big Data işlemenizi sağlar. Altyapısında Hadoop frameworkünü kullanır.
+Data Pipeline
+
+Veriyi işleyip dönüştürmeniz ve daha sonra bunları S3, RDS, DynamoDB veya EMR ‘da saklamanıza saklar.
+Elastic Search
+
+Elastic Search Engine AWS üzerinde sunulmasıdır. Log, Click Stream Analytics, Real Time App Monitoring kullanılır.
+Kinesis
+
+AWS üzerinde Streaming Data servisidir. Web, Mobile, iOT ürettiği stream verisini toplama, depolama ve işleme ihtiyacı için
+Machine Learning
+
+AWS üzerinde Machine Learning teknolojisi kullanmalarını kolaylaştıran servisler sunar. Model , algoritma ve görsellik
+Quick Sight
+
+AWS üzerindeki BI(Business Intelligence) hizmetidir.
+Security And Identity
+IAM
+
+Identity And Access Management servisidir. AWS üzerindeki kullanıcılarınızı, gruplarınızı ve rollerinizi yönetmenizi sağlar.
+Directory Service
+
+AWS üzerinde MS Active Directory’nın kurulmasını ve çalıştırılmasını sağlar.
+WAF
+
+Web Application Firewall Service. Bilinen atak örüntüleri(Ddos), SQL injection ve Cross Site Scripting karşı önlem alabilmesini sağlar.
+Cloud HSM
+
+Bulut’ta Hardware Security Module hizmetidir. Verilerinizi KMS ürettiği anahtarlarla Encypt edilmesini sağlar.
+KMS
+
+Key Management Service’dir HSM verinin encypt edilebilmesi için key üretilmesinden, kontrolünden ve güvenliğini sağlayan servistir.
+Management Tools
+Cloud Watch
+
+AWS kaynaklarınızı monitor etmenizi sağlar. Kaynakların izleri ve logları takip ederek belirlediğiniz alarmları çalıştırır.
+Cloud Formation
+
+CloudFormation AWS üzerinde manuel yaptığınız tanımladığınız bir çok sistemi, configurasyonu JSON template yapmanızı sağlar.
+Cloud Trailer
+
+AWS API call’larının kayıtlarını tutar. Bu sayede bu izleri takip ederek AWS kullanıcılarının yaptığı işlemleri takip edersiniz.
+Opsworks
+
+AWS üzerindeki Configuration Management Servisidir.
+Config
+
+AWS üzerinde kaynak envanteri, configurasyon tarihçesi ve konfigurasyonda yapılan bir değişikliğın bildirimi için servis
+Service Catalog
+
+AWS üzerindeki IT servislerini katalog haline getirip bunlarını yönetebilmesini sağlar.
+Application Services
+API Gateway
+
+Bulut’ta geliştiricilerin güvenli API oluşturmalarına, yayınlamalarına ve monitor etmelerini sağlar.
+AppStream
+
+Windows App AWS üzerinde çalışarak görüntü ve etkileşimin Stream ile yapılmasını sağlar. MacOS, KindleFires,Chromebook
+Cloud Search
+
+Web sayfanızın üzerindeki aramalar için sunulan bir servistir. 34 dili destekler.
+Elastic Transcoder
+
+AWS üzerinde media ve video dönüştürümünü gerçekleştirmek için sunulmuş servistir. Telefon ve Tablet’de media desteği için
+SES
+
+Simple Email Service. Email göndermenizi ve almanızı sağlayan servistir.
+SQS
+
+Simple Queue Service. Uygulamalarınızın kullanabileceği ActiveMQ, RabbitMQ gibi servis sunar.
+SWF
+
+AWS Simple Workflow Service, Arka planda yapılması gereken işlemleri paralel veya sırası ile çalıştırmanızı sağlar.
+Developer Tools
+Code Commit
+
+AWS ‘nin Source Control hizmetidir.
+Code Deploy
+
+AWS’nin sağladığı App Deploy otomatikleştiren servistir.
+Code Pipeline
+
+AWS’nin Continues Delivery Servisidir. Kodunuzu commit ettiğinizde build edilmesi, test edilmesi, preprod sonra prod ortamına atılmasını sağlar.
+Mobile Services
+Mobile Hub
+
+Mobile Hub, mobil uygulama geliştirme, build etme, test etme ve kullanımını monitor etmeniz için ortam sağlar.
+Cognito
+
+Mobil Uygulamanızın verisini , configurasyonlarını veya game state tutmanızı sağlayan servistir
+Device Farm
+
+Bulut’ta farklı Android cihazları üzerinde uygulamanızın test edilmesini sağlar, performans ve görüntü sonuçlar sağlar.
+Mobile Analytics
+
+Mobil uygulamanızın kullanılma oranları ve kazanç durumlarını analiz etmenizi sağlar.
+SNS
+
+Simple Notification Service ile Mobil uygulamanızın Push Notifacation bu servis üzerinden yapabilirsiniz.
+Enterprise Applications
+Workspace
+
+İşletmeniz için sanal desktop’lar oluşturarak çalışanların bu workspace’ledeki uygulama ve dökümanlara erişimini sağlayan servistir.
+Workmail
+
+İşletmeniz için eposta ve takvim hizmeti sunar.
+Workdocs
+
+İşletmeniz için dokümanlarınızı (pdf, video vb..) saklayabileceğiniz paylaşabileceğiniz Dropbox gibi ortam sağlar.
+Internet Of Things
+iOT
+
+iOT cihazlarının AWS’ye telemetri ve sensör verilerini aktarmaları, bunların analiz edilmesi ve depolanması için sunulan servislerdir.

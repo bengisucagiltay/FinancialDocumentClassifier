@@ -1,0 +1,17 @@
+﻿AWS Storage (Depolama) Servisleri Hakkında
+
+Amazon S3: Amazon’un Object Storage servisidir. Bulut’ta 1byte -5 TB bir dosyayı (key, value) şeklinde saklamanızı ve sonrada bunu çekebilmenizi sağlar.
+
+    Web Sayfaları için Statik Content burada tutabilirsiniz (HTML, JS, Video, Image)
+    Analiz etmek istediğiniz büyük ölçekli verilerinizi veya dosyalarınızı S3'te tutabilirsiniz
+    Backup veya Arşivlemek iştediğiniz verinizi S3'de tutabilirsiniz.
+
+Amazon Glacier: Amazon’ün Arşiv servisidir. Çok büyük verilerinizi çok ucuza saklamak istiyorsanız. Bu verilere anlık erişim ihtiyacınız yoksa bu servis sizin için oldukça uygun. AWS Glacier erişim için Import/Export servisini kullanmanız veya S3'deki Object’ler üzerinden kural tanımlayarak Object LifeCycle Glacier eklemeniz gerekir.
+
+Amazon EBS: Sanal EC2 makinelerinin hardiskleridir diyebiliriz. Kolayca snapshot alınabilen ESB’ler dosya sistemi ve veritabanı olarak rahatlıkla kullanılabilir. 1 GB-16 TB arasında istediğiniz harddiski oluşturup sisteminize entegre edebilirsiniz.
+
+Amazon EC2 Instance Storage: EBS’den farklı olarak aynı fiziksel makinenin üzerindeki harddiskler’dir. Sürekli değişen buffer, temporary veri ve cahce gibi mekanizmalar için oldukça uygundur.
+
+AWS Import/Export Snowball: AWS’deki büyük verilerin transferi için geliştirilmiştir. 10GBps network bağlantısı ile 50 TB veriyi 1 günden daha kısa bir sürede atmanızı sağlar.
+
+AWS CloudFront: Content Delivery servisidir. Amacı static verilerin, HHTP üzerinden dağıtılan HTML, PHP, Imaj, Video, JS vb.. istek talebinde bulunan sunucuya en kısa yoldan ulaştırılabilmesi için kullanıcı kendisine en yakın olan lokasyona yönlendirilerek verilere erişim sağlanır.

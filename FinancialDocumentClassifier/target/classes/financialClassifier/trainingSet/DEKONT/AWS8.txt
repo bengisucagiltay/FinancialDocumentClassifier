@@ -1,0 +1,5 @@
+﻿AWS Device Farm
+
+Mobil uygulamanızı store çıkarmadan önce bir çok gerçek test cihazında denemeniz için bir çok mobil cihaz satın almanız ve bu cihazlara farklı işletim sistemleri kurmanız gerekiyor. Bunun için AWS nin Device Farm servisinden faydalanabilirsiniz.
+
+Bu kısımda uygulamayı açtığımızda ilk önce uygulamayı yüklüyoruz. APK veya IPA dosyasını yüklüyoruz. Sonrasında test konfigurasyonunu yaparak mobil uygulamamızı nasıl test edeceğimize karar veriyoruz. Sonrasında hangi cihazlarda test yapacağımıza karar veriyoruz. Bunun ardından cihazların özelliklerini atıyoruz ve Test Planımızı çalıştırıyoruz.
