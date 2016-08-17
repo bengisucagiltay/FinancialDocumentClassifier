@@ -88,8 +88,11 @@ You don't have to create seperate [unk] folders since you might not know their t
 
 However, for clarity the test class includes the three main topics.
 
+### Stopwords
+
+Since the application is used to classify Turkish financial documents, the stoplist contains Turkish words. However, the stoplist can be edited for any language and used accordingly.
 
 
    [DeepLearning4j]: <http://deeplearning4j.org/>
    [dl4j - GitHub]: <https://github.com/deeplearning4j/dl4j-examples>
-
+	[blogs]: <https://medium.com/@odayibasi/>
