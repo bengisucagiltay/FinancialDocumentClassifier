@@ -11,6 +11,7 @@ import java.io.FileReader;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.atomic.AtomicInteger;
+import java.nio.file.Files;
 
 /**
  * This is simple filesystem-based LabelAware iterator.
@@ -71,11 +72,37 @@ public class FileLabelAwareIterator implements LabelAwareIterator {
     public void reset() {
         position.set(0);
     }
+    
 
     @Override
     public LabelsSource getLabelsSource() {
         return labelsSource;
     }
+    
+        /**
+     * getFilePos()
+     * getFileName()
+     * 
+     * author Bengisu
+     */
+    
+    public String getFilePath(){
+        File fileToRead = files.get(position.get());
+        String label = fileToRead.getPath();
+        return label;
+    }
+    public String getFileName(){
+        File fileToRead = files.get(position.get() - 1);
+        String name = fileToRead.getName();
+        return name;
+    }
+    
+    /*    public void moveFile(String desired ){
+    //File fileToRead = files.get(position.get() - 1);
+    Files.move(getFilePath(), desired, StandardCopyOption.REPLACE_EXISTING);
+    //fileToRead.renameTo(new File(desired));
+    
+    }*/
 
     public static class Builder {
         protected List<File> foldersToScan = new ArrayList<>();
@@ -103,9 +130,6 @@ public class FileLabelAwareIterator implements LabelAwareIterator {
 
             for (File file: foldersToScan) {
                 if (!file.isDirectory()) continue;
-
-
-
 
                 File[] files = file.listFiles();
                 if (files == null || files.length ==0 ) continue;

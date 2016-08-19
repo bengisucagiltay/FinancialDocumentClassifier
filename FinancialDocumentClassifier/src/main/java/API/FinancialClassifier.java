@@ -3,7 +3,13 @@ package API;
 import dl4j.tools.FileLabelAwareIterator;
 import dl4j.tools.LabelSeeker;
 import dl4j.tools.MeansBuilder;
+import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.nio.file.FileSystems;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.StandardCopyOption;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Locale;
@@ -20,6 +26,9 @@ import org.deeplearning4j.text.tokenization.tokenizerfactory.TokenizerFactory;
 import org.nd4j.linalg.api.ndarray.INDArray;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import static java.nio.file.StandardCopyOption.*;
+import java.util.logging.Level;
+import org.apache.uima.pear.tools.PackageBrowser;
 
 /**
  * class: FinancialClassifier
@@ -82,7 +91,7 @@ public class FinancialClassifier implements IFinancialClassifier{
     public FinancialTypeEnum identifyFile(ClassPathResource unClassifiedResource) throws FileNotFoundException{
         int n = 0;
         fileType = FinancialTypeEnum.UNKNOWN;
-        //ClassPathResource unClassifiedResource = new ClassPathResource("DEKONT");
+        //ClassPathResource unClassifiedResource = new ClassPathResource("unk");
         
         FileLabelAwareIterator unClassifiedIterator = new FileLabelAwareIterator.Builder()
             .addSourceFolder(unClassifiedResource.getFile())
@@ -105,20 +114,36 @@ public class FinancialClassifier implements IFinancialClassifier{
                    largest = (scores.get(i)).getSecond();
                 }
             }
-            System.out.println("Document '" + document.getLabel() + "-" + n +"' falls into the following category: ");
+            System.out.println("File '" + unClassifiedIterator.getFileName() + "' from document '" + document.getLabel() + "(index:" + n +")' falls into the following category: ");
             System.out.println("\t" + fileType.name());
+            
+            File source = new File ("src/main/resources/financialClassifier/UNK/unClassified/" + unClassifiedIterator.getFileName());
+            Path sourcePath = FileSystems.getDefault().getPath(source.getAbsolutePath());
+            
+            File target = new File ("src/main/resources/classified/" + fileType.name() + "/" + unClassifiedIterator.getFileName()); // resources/classified/FATURA/XX.txt
+            Path targetPath = FileSystems.getDefault().getPath(target.getAbsolutePath());
+            
+            try {
+                Files.copy(sourcePath, targetPath, StandardCopyOption.REPLACE_EXISTING);
+                //Files.move(sourcePath, targetPath, StandardCopyOption.REPLACE_EXISTING);
+            } catch (IOException ex) {
+            }
+            
             n++;
+            
             
             //print all file occurance and details
             
-               
+            /*
             log.info("Document '" + document.getLabel() + "' falls into the following categories: ");
             for (Pair<String, Double> score: scores) {
             log.info("        " + score.getFirst() + ": " + score.getSecond());
-            }
+            }*/
         }
     return fileType;
     }
+    
+
     
     //Singleton Pattern for learning process
 	public static FinancialClassifier getReference(){

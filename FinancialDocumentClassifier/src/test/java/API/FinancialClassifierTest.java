@@ -76,4 +76,5 @@ public class FinancialClassifierTest {
         IFinancialClassifier.FinancialTypeEnum fcType = fcTest.identifyFile(unClassifiedFATURA);
         assertEquals(IFinancialClassifier.FinancialTypeEnum.FATURA,fcType);
     }
+    
 }
