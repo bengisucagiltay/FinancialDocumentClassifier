@@ -6,6 +6,8 @@ The library from [DeepLearning4j] is used during the development. ([dl4j - GitHu
 
 For safety concerns, the financial documents are replaced with Onur Dayıbaşı's Turkish [blogs].
 
+*FinancialDocumentClassifier is used for a summer internship project.
+
 ### INFO - Main Topics and Training Files
 Main topics are folders which contain training files in txt format. These training files are used to generate *paragraphVectors*.
 
